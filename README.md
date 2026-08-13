@@ -1,4 +1,4 @@
-# semaine_10_projet2_cin-Match
+
 # 🎬 CinéMatch - Catalogue de Films (TMDB)
 
 **CinéMatch** est une application web dynamique qui permet de parcourir un catalogue de films et d'effectuer des recherches en temps réel en exploitant l'API de TMDB (The Movie Database).
