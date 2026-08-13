@@ -83,6 +83,30 @@ h1 {
   color: #f87171;
 }
 
+.navigation-onglets {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-onglet {
+  background-color: var(--card-bg);
+  color: var(--text-secondary);
+  border: 1px solid #334155;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-onglet.actif, .btn-onglet:hover {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
 /* ==========================================================================
    Grille Responsive des Films
    ========================================================================== */
