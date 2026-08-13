@@ -1,0 +1,260 @@
+/* ==========================================================================
+   Variables & Thème Sombre
+   ========================================================================== */
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-color: #e11d48;
+  --star-color: #f59e0b;
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* Header & Titres */
+header, h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f43f5e 0%, #fb7185 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+/* Zone d'erreur et Loader */
+#loader, #message-erreur {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin: 3rem 0;
+}
+
+#message-erreur {
+  color: #f87171;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+#barre-recherche {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #334155;
+  background-color: #1e293b;
+  color: #f8fafc;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#barre-recherche:focus {
+  border-color: #e11d48;
+  box-shadow: 0 0 10px rgba(225, 29, 72, 0.4);
+}
+
+.aucun-resultat {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-top: 2rem;
+}
+
+/* --- Style de la fenêtre Modale --- */
+.modal {
+  display: none; /* Cachée par défaut */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal-contenu {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-radius: 12px;
+  max-width: 650px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.fermer {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.fermer:hover {
+  color: #e11d48;
+}
+
+.modal-detail-grid {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.modal-detail-grid img {
+  width: 180px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.modal-info h2 {
+  color: #fb7185;
+  margin-bottom: 0.5rem;
+}
+
+.modal-info .meta {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.modal-info p.synopsis {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Grille Responsive des Films
+   ========================================================================== */
+#grille-films {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ==========================================================================
+   Carte de Film
+   ========================================================================== */
+.carte-film {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Effet au survol (Hover) */
+.carte-film:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* Image de l'affiche */
+.carte-film img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.carte-film:hover img {
+  filter: brightness(1.05);
+}
+
+/* Zone d'informations du film */
+.info-film {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.info-film h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  /* Limiter à 2 lignes avec points de suspension */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.info-film p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   Responsive Mobile
+   ========================================================================== */
+@media (max-width: 640px) {
+  #grille-films {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .carte-film img {
+    height: 220px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+footer {
+  text-align: center;
+  padding: 2rem 0 1rem 0;
+  color: #64748b;
+  font-size: 0.85rem;
+}
