@@ -1,46 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinéMatch</title>
-    <link rel="stylesheet" href="style.css">
-
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CinéMatch - Catalogue de Films</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+  <header>
+    <h1>Catalogue de Films</h1>
+    <div class="search-container">
+      <input 
+        type="text" 
+        id="barre-recherche" 
+        placeholder="Rechercher un film..." 
+        autocomplete="off"
+      />
+    </div>
+  </header>
 
-    <header>
-        <h1>Catalogue de Films</h1>
-        <div class="search-container">
-            <input type="text" id="barre-recherche" placeholder="🔍 Rechercher un film..." autocomplete="off" />
-        </div>
-    </header>
-
-
-    <div id="loader">Chargement des films populaires...</div>
-
-
+  <main>
+    <div id="loader">Chargement des films en cours...</div>
     <div id="message-erreur"></div>
+    <div id="grille-films"></div>
+  </main>
 
-
-    <main id="grille-films" class="grille-films"></main>
-    <!-- Fenêtre Modale pour les détails du film -->
-    <div id="modal-film" class="modal">
-        <div class="modal-contenu">
-            <span id="bouton-fermer" class="fermer">&times;</span>
-            <div id="modal-body">
-                <!-- Le résumé du film s'affichera ici -->
-            </div>
+  <div id="modal-film" class="modal">
+    <div class="modal-contenu">
+      <span id="bouton-fermer" class="fermer">&times;</span>
+      <div id="modal-body">
         </div>
     </div>
-    <footer>
-        <p>Projet réalisé avec l'API TMDB | Tous droits réservés</p>
-    </footer>
+  </div>
 
+  <footer>
+    <p>Projet réalisé avec l'API TMDB | Tous droits réservés</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
